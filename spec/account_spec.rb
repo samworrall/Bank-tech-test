@@ -3,6 +3,10 @@ require 'account'
 
 describe Account do
   describe '#balance', :balance do
+    it 'Begins empty' do
+      expect(subject.balance).to eq(0)
+    end
+
     it 'Returns the balance of the account' do
       expect(subject.balance).to eq(0)
     end

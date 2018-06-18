@@ -8,6 +8,11 @@ describe Transaction do
   end
 
   describe '#log', :log do
+
+    it 'Increases the history array length by 1' do
+      expect { subject.log(10, 0, 10) }.to change { subject.history.length }.by(1)
+    end
+
     it 'Pushes a credit log to the history array' do
       subject.log(10, 0, 10)
       expect(subject.history).to eq([{

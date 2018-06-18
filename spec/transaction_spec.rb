@@ -20,4 +20,10 @@ describe Transaction do
       expect(transaction.credit).to eq(10)
     end
   end
+
+  describe '#balance', :balance do
+    it 'Returns the balance after the transaction' do
+      expect(transaction.balance).to eq(10)
+    end
+  end
 end

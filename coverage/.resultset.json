@@ -52,10 +52,29 @@
         2,
         1,
         null,
+        null
+      ],
+      "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/spec/transaction_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/lib/transaction.rb": [
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1529320446
+    "timestamp": 1529321939
   }
 }

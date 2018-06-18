@@ -1,5 +1,4 @@
 require 'account'
-require 'transaction'
 STANDARD_AMOUNT = 10
 
 describe Account do
@@ -26,6 +25,11 @@ describe Account do
     it 'Calls log on transaction' do
       subject.deposit(STANDARD_AMOUNT)
       expect(transaction).to have_received(:log).once
+    end
+
+    it 'Raises an error if the deposit amount is negative' do
+      subject.deposit(STANDARD_AMOUNT)
+      expect { subject.deposit(-STANDARD_AMOUNT) }.to raise_error('Deposit value must be greater than 0')
     end
   end
 

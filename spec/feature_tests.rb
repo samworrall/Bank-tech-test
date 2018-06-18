@@ -6,6 +6,11 @@ def make_a_deposit
   account.deposit(100)
 end
 
+def deposit_a_negative_number
+  account = Account.new
+  account.deposit(-50)
+end
+
 def make_a_withdrawal
   account = Account.new
   account.deposit(100)

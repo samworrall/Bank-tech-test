@@ -5,8 +5,8 @@ class Transaction
     @history = []
   end
 
-  def log(credit, debit, balance)
-    @history.push(date: Time.now.strftime('%d/%m/%Y'),
+  def log(date, credit, debit, balance)
+    @history.push(date: date,
                   credit: credit,
                   debit: debit,
                   balance: balance)

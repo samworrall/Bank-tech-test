@@ -9,14 +9,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.push(date: Time.now.strftime('%d/%m/%Y'),
-                              debit: 0, credit: amount, balance: @balance)
+    @transaction_history.push(Transaction.new(Time.now.strftime('%d/%m/%Y'), 0, amount, @balance))
   end
 
   def withdraw(amount)
     raise 'Insufficient funds!' if @balance - amount < MINIMUM_BALANCE
     @balance -= amount
-    @transaction_history.push(date: Time.now.strftime('%d/%m/%Y'),
-                              debit: amount, credit: 0, balance: @balance)
+    @transaction_history.push(Transaction.new(Time.now.strftime('%d/%m/%Y'), amount, 0, @balance))
   end
 end

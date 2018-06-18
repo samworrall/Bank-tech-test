@@ -1,4 +1,5 @@
 require 'account'
+require 'transaction'
 
 describe Account do
   describe '#balance', :balance do

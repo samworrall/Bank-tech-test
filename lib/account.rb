@@ -1,3 +1,5 @@
+# require_relative 'transaction.rb'
+
 class Account
   MINIMUM_BALANCE = 0
   attr_reader :balance, :transaction_history
@@ -9,12 +11,20 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.push(Transaction.new(Time.now.strftime('%d/%m/%Y'), 0, amount, @balance))
+    @transaction_history.push(amount)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds!' if @balance - amount < MINIMUM_BALANCE
     @balance -= amount
-    @transaction_history.push(Transaction.new(Time.now.strftime('%d/%m/%Y'), amount, 0, @balance))
+    @transaction_history.push(amount)
+  end
+
+  def statement
+    statement = ''
+    @transaction_history.each_with_index do |transaction, i|
+      statement += "#{i + 1}. #{transaction.date}, #{transaction.debit}, #{transaction.credit}, #{transaction.balance}\n"
+    end
+    statement
   end
 end

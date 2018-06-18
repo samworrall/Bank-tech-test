@@ -34,5 +34,12 @@ describe Account do
     it 'Is an empty array upon instantiation' do
       expect(subject.transaction_history).to eq([])
     end
+
+    it 'Updates after depositing' do
+      subject.deposit(10)
+      expect(subject.transaction_history).to eq([{
+        date: '18/06/2018', debit: 0, credit: 10, balance: 10
+        }])
+    end
   end
 end

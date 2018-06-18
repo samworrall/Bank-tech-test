@@ -11,11 +11,7 @@ class Account
   end
 
   def withdraw(amount)
-    if @balance - amount < MINIMUM_BALANCE
-      fail 'You have insufficient funds!'
-    else
-      @balance -= amount
-    end
+    raise 'Insufficient funds!' if @balance - amount < MINIMUM_BALANCE
+    @balance -= amount
   end
-
 end

@@ -1,4 +1,3 @@
-require 'spec_helper.rb'
 require 'account'
 
 describe Account do
@@ -27,7 +26,7 @@ describe Account do
     end
 
     it 'Raises an error when new balance would be < minimum balace' do
-      expect { subject.withdraw(1) }.to raise_error('You have insufficient funds!')
+      expect { subject.withdraw(1) }.to raise_error('Insufficient funds!')
     end
   end
 end

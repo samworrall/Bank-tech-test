@@ -1,8 +1,9 @@
+require_relative 'transaction'
 class Account
   MINIMUM_BALANCE = 0
   attr_reader :balance
 
-  def initialize(transaction)
+  def initialize(transaction = Transaction.new)
     @balance = MINIMUM_BALANCE
     @transaction = transaction
   end

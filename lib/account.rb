@@ -17,4 +17,8 @@ class Account
     @balance -= amount
     @transaction.log(0, amount, @balance)
   end
+
+  def view_statement
+    @transaction.print_transaction_history
+  end
 end

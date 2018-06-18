@@ -14,4 +14,10 @@ describe Transaction do
       expect(transaction.debit).to eq(0)
     end
   end
+
+  describe '#credit', :credit do
+    it 'Returns the credit value of the transaction' do
+      expect(transaction.credit).to eq(10)
+    end
+  end
 end

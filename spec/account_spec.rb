@@ -25,5 +25,9 @@ describe Account do
       subject.withdraw(10)
       expect(subject.balance).to eq(10)
     end
+
+    it 'Raises an error when new balance would be < minimum balace' do
+      expect { subject.withdraw(1) }.to raise_error('You have insufficient funds!')
+    end
   end
 end

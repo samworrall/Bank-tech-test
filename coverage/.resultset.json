@@ -30,6 +30,10 @@
         1,
         null,
         null,
+        1,
+        2,
+        null,
+        null,
         null
       ],
       "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/lib/account.rb": [
@@ -38,7 +42,7 @@
         1,
         null,
         1,
-        4,
+        5,
         null,
         null,
         1,
@@ -46,11 +50,16 @@
         null,
         null,
         1,
+        2,
         1,
+        null,
+        1,
+        null,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1529319771
+    "timestamp": 1529320140
   }
 }

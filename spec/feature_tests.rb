@@ -11,3 +11,9 @@ def make_a_withdrawal
   account.deposit(100)
   account.withdraw(50)
 end
+
+def withdraw_too_much
+  account = Account.new
+  account.deposit(50)
+  account.withdraw(100)
+end

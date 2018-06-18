@@ -2,22 +2,22 @@
 
 class Account
   MINIMUM_BALANCE = 0
-  attr_reader :balance, :transaction_history
+  attr_reader :balance
 
-  def initialize
+  def initialize(transaction)
     @balance = MINIMUM_BALANCE
-    @transaction_history = []
+    @transaction = transaction
   end
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.push(amount)
+    @transaction.log(0, amount, @balance)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds!' if @balance - amount < MINIMUM_BALANCE
     @balance -= amount
-    @transaction_history.push(amount)
+    @transaction.log(amount, 0, @balance)
   end
 
   def statement

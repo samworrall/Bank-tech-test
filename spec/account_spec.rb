@@ -2,6 +2,9 @@ require 'account'
 require 'transaction'
 
 describe Account do
+  let(:subject) { Account.new(transaction) }
+  let(:transaction) { spy :transaction }
+
   describe '#balance', :balance do
     it 'Begins empty' do
       expect(subject.balance).to eq(Account::MINIMUM_BALANCE)
@@ -17,6 +20,11 @@ describe Account do
       subject.deposit(10)
       expect(subject.balance).to eq(10)
     end
+
+    it 'Calls log on transaction' do
+      subject.deposit(10)
+      expect(transaction).to have_received(:log).once
+    end
   end
 
   describe '#withdraw', :withdraw do
@@ -26,25 +34,14 @@ describe Account do
       expect(subject.balance).to eq(10)
     end
 
-    it 'Raises an error when new balance would be < minimum balace' do
-      expect { subject.withdraw(1) }.to raise_error('Insufficient funds!')
-    end
-  end
-
-  describe '#transaction_history', :transaction_history do
-    it 'Is an empty array upon instantiation' do
-      expect(subject.transaction_history).to eq([])
-    end
-
-    it 'Updates after depositing' do
-      subject.deposit(10)
-      expect(subject.transaction_history.length).to eq(1)
-    end
-
-    it 'Updates after withdrawing' do
+    it 'Calls log on transaction' do
       subject.deposit(20)
       subject.withdraw(10)
-      expect(subject.transaction_history.length).to eq(2)
+      expect(transaction).to have_received(:log).twice
+    end
+
+    it 'Raises an error when new balance would be < minimum balace' do
+      expect { subject.withdraw(1) }.to raise_error('Insufficient funds!')
     end
   end
 end

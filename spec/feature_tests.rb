@@ -28,3 +28,9 @@ def withdraw_a_negative_amount
   account.deposit(50)
   account.withdraw(-50)
 end
+
+def check_balance
+  account = Account.new
+  account.deposit(50)
+  account.balance
+end

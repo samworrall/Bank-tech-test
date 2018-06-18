@@ -38,6 +38,10 @@ describe Account do
   end
 
   describe '#withdraw', :withdraw do
+    it 'Takes one argument' do
+      expect(subject).to respond_to(:withdraw).with(1).argument
+    end
+
     it 'Decreases the account balance by 10' do
       subject.deposit(20)
       subject.withdraw(STANDARD_AMOUNT)

@@ -29,7 +29,7 @@ describe Account do
 
     it 'Raises an error if the deposit amount is negative' do
       subject.deposit(STANDARD_AMOUNT)
-      expect { subject.deposit(-STANDARD_AMOUNT) }.to raise_error('Deposit value must be greater than 0')
+      expect { subject.deposit(-STANDARD_AMOUNT) }.to raise_error('Minimum deposit is 0')
     end
   end
 
@@ -48,6 +48,11 @@ describe Account do
 
     it 'Raises an error when new balance would be < minimum balace' do
       expect { subject.withdraw(STANDARD_AMOUNT) }.to raise_error('Insufficient funds!')
+    end
+
+    it 'Raises an error if the withdrawal amount is negative' do
+      subject.deposit(STANDARD_AMOUNT)
+      expect { subject.withdraw(-STANDARD_AMOUNT) }.to raise_error('Minimum withdrawal is 0')
     end
   end
 

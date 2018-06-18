@@ -29,4 +29,10 @@ describe Account do
       expect { subject.withdraw(1) }.to raise_error('Insufficient funds!')
     end
   end
+
+  describe '#transaction_history', :transaction_history do
+    it 'Is an empty array upon instantiation' do
+      expect(subject.transaction_history).to eq([])
+    end
+  end
 end

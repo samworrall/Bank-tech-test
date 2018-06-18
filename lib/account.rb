@@ -1,9 +1,10 @@
 class Account
   MINIMUM_BALANCE = 0
-  attr_reader :balance
+  attr_reader :balance, :transaction_history
 
   def initialize
     @balance = MINIMUM_BALANCE
+    @transaction_history = []
   end
 
   def deposit(amount)

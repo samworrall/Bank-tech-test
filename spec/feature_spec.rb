@@ -1,2 +1,0 @@
-require 'account'
-require 'transaction'

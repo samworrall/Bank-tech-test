@@ -34,3 +34,11 @@ def check_balance
   account.deposit(50)
   account.balance
 end
+
+def view_transaction_statement
+  account = Account.new
+  account.deposit(50)
+  account.deposit(100)
+  account.withdraw(50)
+  account.view_statement
+end

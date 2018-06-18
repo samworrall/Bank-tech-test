@@ -16,5 +16,7 @@ class Account
   def withdraw(amount)
     raise 'Insufficient funds!' if @balance - amount < MINIMUM_BALANCE
     @balance -= amount
+    @transaction_history.push(date: Time.now.strftime('%d/%m/%Y'),
+                              debit: amount, credit: 0, balance: @balance)
   end
 end

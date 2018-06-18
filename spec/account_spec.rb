@@ -39,7 +39,15 @@ describe Account do
       subject.deposit(10)
       expect(subject.transaction_history).to eq([{
         date: '18/06/2018', debit: 0, credit: 10, balance: 10
-        }])
+                                                }])
+    end
+
+    it 'Updates after withdrawing' do
+      subject.deposit(20)
+      subject.withdraw(10)
+      expect(subject.transaction_history.last).to eq(
+        date: '18/06/2018', debit: 10, credit: 0, balance: 10
+                                                     )
     end
   end
 end

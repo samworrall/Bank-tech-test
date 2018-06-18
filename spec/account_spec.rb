@@ -17,6 +17,10 @@ describe Account do
   end
 
   describe '#deposit', :deposit do
+    it 'Takes one argument' do
+      expect(subject).to respond_to(:deposit).with(1).argument
+    end
+
     it 'Increases the account balance by 10' do
       subject.deposit(STANDARD_AMOUNT)
       expect(subject.balance).to eq(STANDARD_AMOUNT)
@@ -58,9 +62,10 @@ describe Account do
 
   describe '#view_statement', :view_statement do
     it 'Returns a full transaction statement' do
+      outcome = "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n"
       subject.deposit(20)
       subject.withdraw(STANDARD_AMOUNT)
-      expect(subject.view_statement).to eq("Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n")
+      expect(subject.view_statement).to eq(outcome)
     end
   end
 end

@@ -1,5 +1,6 @@
 require 'account'
 require 'transaction'
+STANDARD_AMOUNT = 10
 
 describe Account do
   let(:subject) { Account.new(transaction) }
@@ -18,12 +19,12 @@ describe Account do
 
   describe '#deposit', :deposit do
     it 'Increases the account balance by 10' do
-      subject.deposit(10)
-      expect(subject.balance).to eq(10)
+      subject.deposit(STANDARD_AMOUNT)
+      expect(subject.balance).to eq(STANDARD_AMOUNT)
     end
 
     it 'Calls log on transaction' do
-      subject.deposit(10)
+      subject.deposit(STANDARD_AMOUNT)
       expect(transaction).to have_received(:log).once
     end
   end
@@ -31,25 +32,25 @@ describe Account do
   describe '#withdraw', :withdraw do
     it 'Decreases the account balance by 10' do
       subject.deposit(20)
-      subject.withdraw(10)
-      expect(subject.balance).to eq(10)
+      subject.withdraw(STANDARD_AMOUNT)
+      expect(subject.balance).to eq(STANDARD_AMOUNT)
     end
 
     it 'Calls log on transaction' do
       subject.deposit(20)
-      subject.withdraw(10)
+      subject.withdraw(STANDARD_AMOUNT)
       expect(transaction).to have_received(:log).twice
     end
 
     it 'Raises an error when new balance would be < minimum balace' do
-      expect { subject.withdraw(1) }.to raise_error('Insufficient funds!')
+      expect { subject.withdraw(STANDARD_AMOUNT) }.to raise_error('Insufficient funds!')
     end
   end
 
   describe '#view_statement', :view_statement do
     it 'Returns a full transaction statement' do
       subject.deposit(20)
-      subject.withdraw(10)
+      subject.withdraw(STANDARD_AMOUNT)
       expect(subject.view_statement).to eq("Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n")
     end
   end

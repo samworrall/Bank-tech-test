@@ -49,7 +49,7 @@ describe Account do
     it 'Decreases the account balance by 10' do
       subject.deposit(20)
       subject.withdraw(10)
-      expect { subject.withdraw(10) }.to change{ subject.balance }.by -10
+      expect { subject.withdraw(10) }.to change{ subject.balance }.by(-10)
     end
 
     it 'Calls log on transaction' do

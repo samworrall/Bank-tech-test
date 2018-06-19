@@ -5,7 +5,7 @@ class Account
   MINIMUM_WITHDRAWAL = 0
   attr_reader :balance
 
-  def initialize(transaction = Transaction.new, printer)
+  def initialize(transaction = Transaction.new, printer = Printer.new)
     @balance = MINIMUM_BALANCE
     @transaction = transaction
     @printer = printer

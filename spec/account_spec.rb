@@ -2,9 +2,10 @@ require 'account'
 STANDARD_AMOUNT = 10
 
 describe Account do
-  let(:subject) { Account.new(transaction) }
+  let(:subject) { Account.new(transaction, printer) }
   let(:transaction) { spy :transaction, print_transaction_history: history }
   let(:history) { "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n" }
+  let(:printer) { double :printer }
 
   describe '#balance', :balance do
     it 'Begins empty' do

@@ -4,7 +4,8 @@ STANDARD_AMOUNT = 10
 describe Account do
   let(:subject) { Account.new(transaction, printer) }
   let(:transaction) { spy :transaction }
-  let(:printer) { double :printer,
+  let(:printer) {
+     double :printer,
      pretty_print: "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n" }
 
   describe '#balance', :balance do

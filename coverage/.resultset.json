@@ -130,18 +130,7 @@
       "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/spec/feature_spec.rb": [
         1,
         1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
+        1
       ],
       "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/lib/printer.rb": [
         1,
@@ -209,6 +198,6 @@
         null
       ]
     },
-    "timestamp": 1529399092
+    "timestamp": 1529399341
   }
 }

@@ -1,7 +1,8 @@
 require 'printer'
 
 describe Printer do
-  let(:statement) { [{ date: '18/06/2018', credit: 20, debit: 0, balance: 20 },
+  let(:statement) {
+    [{ date: '18/06/2018', credit: 20, debit: 0, balance: 20 },
      { date: '18/06/2018', credit: 0, debit: 10, balance: 10 }] }
 
   describe '#pretty_print', :pretty_print do

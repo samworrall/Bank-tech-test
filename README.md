@@ -55,8 +55,8 @@ I finally added the functionality to pretty print the transaction history to the
 To take this further/improve, perhaps a new Print class could be extracted from the Transaction class.
 
 
-Update 19/06/2018
-=================
+Update 19/06/2018:
+
 I have updated the program, which now had a separate Printer class which has responsibility for printing a given statement. I felt as if the Transaction class should only be responsible for logging transactions and not formatting them for printing. I have made sure to mock this new dependency in the tests. I have also since mocked Time in the tests.
 
 

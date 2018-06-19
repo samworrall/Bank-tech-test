@@ -23,8 +23,7 @@ describe Account do
     end
 
     it 'Increases the account balance by 10' do
-      subject.deposit(10)
-      expect(subject.balance).to eq(10)
+      expect { subject.deposit(10) }.to change { subject.balance }.by(10)
     end
 
     it 'Calls log on transaction' do

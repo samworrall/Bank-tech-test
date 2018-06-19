@@ -1,5 +1,4 @@
 require 'account'
-STANDARD_AMOUNT = 10
 
 describe Account do
   let(:subject) { Account.new(transaction, printer) }
@@ -24,18 +23,18 @@ describe Account do
     end
 
     it 'Increases the account balance by 10' do
-      subject.deposit(STANDARD_AMOUNT)
-      expect(subject.balance).to eq(STANDARD_AMOUNT)
+      subject.deposit(10)
+      expect(subject.balance).to eq(10)
     end
 
     it 'Calls log on transaction' do
-      subject.deposit(STANDARD_AMOUNT)
+      subject.deposit(10)
       expect(transaction).to have_received(:log).once
     end
 
     it 'Raises an error if the deposit amount is negative' do
-      subject.deposit(STANDARD_AMOUNT)
-      expect { subject.deposit(-STANDARD_AMOUNT) }.to raise_error('Minimum deposit is 0')
+      subject.deposit(10)
+      expect { subject.deposit(-10) }.to raise_error('Minimum deposit is 0')
     end
   end
 
@@ -46,23 +45,24 @@ describe Account do
 
     it 'Decreases the account balance by 10' do
       subject.deposit(20)
-      subject.withdraw(STANDARD_AMOUNT)
-      expect(subject.balance).to eq(STANDARD_AMOUNT)
+      subject.withdraw(10)
+      expect(subject.balance).to eq(10)
+      # expect { subject.withdraw(10) }.to change{ subject.balance }.by -10
     end
 
     it 'Calls log on transaction' do
       subject.deposit(20)
-      subject.withdraw(STANDARD_AMOUNT)
+      subject.withdraw(10)
       expect(transaction).to have_received(:log).twice
     end
 
     it 'Raises an error when new balance would be < minimum balace' do
-      expect { subject.withdraw(STANDARD_AMOUNT) }.to raise_error('Insufficient funds!')
+      expect { subject.withdraw(10) }.to raise_error('Insufficient funds!')
     end
 
     it 'Raises an error if the withdrawal amount is negative' do
-      subject.deposit(STANDARD_AMOUNT)
-      expect { subject.withdraw(-STANDARD_AMOUNT) }.to raise_error('Minimum withdrawal is 0')
+      subject.deposit(10)
+      expect { subject.withdraw(-10) }.to raise_error('Minimum withdrawal is 0')
     end
   end
 
@@ -70,7 +70,7 @@ describe Account do
     it 'Returns a full transaction statement' do
       outcome = "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n"
       subject.deposit(20)
-      subject.withdraw(STANDARD_AMOUNT)
+      subject.withdraw(10)
       expect(subject.view_statement).to eq(outcome)
     end
   end

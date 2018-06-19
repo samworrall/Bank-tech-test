@@ -3,12 +3,12 @@
     "coverage": {
       "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/spec/account_spec.rb": [
         1,
-        1,
         null,
         1,
         13,
         13,
-        13,
+        1,
+        12,
         null,
         null,
         1,
@@ -51,6 +51,7 @@
         1,
         1,
         1,
+        null,
         null,
         null,
         1,
@@ -147,7 +148,8 @@
         1,
         null,
         1,
-        2,
+        1,
+        1,
         null,
         null,
         1,
@@ -198,6 +200,6 @@
         null
       ]
     },
-    "timestamp": 1529399341
+    "timestamp": 1529403213
   }
 }

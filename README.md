@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/samworrall/Bank-tech-test.svg?branch=master)](https://travis-ci.org/samworrall/Bank-tech-test)
 # Bank Tech Test
 
 This is the Bank Tech Test from tech test week at Makers Academy, designed to prepare us for the job searching process.

@@ -4,7 +4,7 @@ describe Transaction do
   let(:date) { '18/06/2018' }
   describe '#history', :history do
     it 'Returns an empty array upon instantiation' do
-      expect(subject.history).to eq([])
+      expect(subject.history).to be_empty
     end
   end
 

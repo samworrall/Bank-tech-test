@@ -5,8 +5,12 @@ describe Account do
   let(:transaction) { spy :transaction }
   let(:printer) {
      double :printer,
-     pretty_print: "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n" }
-
+     pretty_print: <<~HEREDOC
+     Date || Credit || Debit || Balance
+     18/06/2018 || 0 || 10 || 10
+     18/06/2018 || 20 || 0 || 20
+     HEREDOC
+   }
   describe '#balance', :balance do
     it 'Begins empty' do
       expect(subject.balance).to eq(Account::MINIMUM_BALANCE)
@@ -66,10 +70,15 @@ describe Account do
 
   describe '#view_statement', :view_statement do
     it 'Returns a full transaction statement' do
-      outcome = "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n"
       subject.deposit(20)
       subject.withdraw(10)
-      expect(subject.view_statement).to eq(outcome)
+      expect(subject.view_statement).to eq(
+        <<~HEREDOC
+        Date || Credit || Debit || Balance
+        18/06/2018 || 0 || 10 || 10
+        18/06/2018 || 20 || 0 || 20
+        HEREDOC
+      )
     end
   end
 end

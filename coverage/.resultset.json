@@ -11,6 +11,10 @@
         12,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
         1,
         1,
         1,
@@ -73,7 +77,12 @@
         1,
         1,
         1,
-        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
@@ -159,6 +168,12 @@
         1,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/samworrall/Desktop/Projects/week10/bank-tech-test/spec/transaction_spec.rb": [
@@ -198,6 +213,6 @@
         null
       ]
     },
-    "timestamp": 1529403754
+    "timestamp": 1529404353
   }
 }

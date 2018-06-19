@@ -34,9 +34,10 @@ describe Transaction do
 
   describe '#print_transaction_history', :print_history do
     it 'Prints the entire transaction history' do
+      outcome = "Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n"
       subject.log(date, 20, 0, 20)
       subject.log(date, 0, 10, 10)
-      expect(subject.print_transaction_history).to eq("Date || Credit || Debit || Balance\n18/06/2018 || 0 || 10 || 10\n18/06/2018 || 20 || 0 || 20\n")
+      expect(subject.print_transaction_history).to eq(outcome)
     end
   end
 end

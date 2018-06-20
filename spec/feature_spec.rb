@@ -35,4 +35,12 @@ describe 'Bank Account', :feature do
       "Minimum withdrawal is #{Account::MINIMUM_WITHDRAWAL}"
     )
   end
+
+  it 'Raises an error when depositing less than the minimum deposit' do
+    account = Account.new
+    date = Time.now.strftime('%d/%m/%Y')
+    expect { account.deposit(-50) }.to raise_error(
+      "Minimum deposit is #{Account::MINIMUM_DEPOSIT}"
+    )
+  end
 end

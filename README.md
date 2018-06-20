@@ -60,6 +60,10 @@ Update 19/06/2018:
 
 I have updated the program, which now has a separate Printer class which has responsibility for printing a given statement. I felt as if the Transaction class should only be responsible for logging transactions and not formatting them for printing. I have made sure to mock this new dependency in the tests. I have also since mocked Time in the tests.
 
+Update 20/06/2018:
+
+I have added a feature spec that gets run when rspec is called in the terminal. All tests pass and all the relevant features have been tested.
+
 
 ## Instructions
 

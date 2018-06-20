@@ -19,4 +19,12 @@ describe 'Bank Account', :feature do
       HEREDOC
     ).to_stdout
   end
+
+  it 'Raises an error' do
+    account = Account.new
+    date = Time.now.strftime('%d/%m/%Y')
+    expect { account.withdraw(50) }.to raise_error(
+      "Insufficient funds!"
+    )
+  end
 end

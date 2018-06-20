@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/samworrall/Bank-tech-test.svg?branch=master)](https://travis-ci.org/samworrall/Bank-tech-test)
 # Bank Tech Test
 
 This is the Bank Tech Test from tech test week at Makers Academy, designed to prepare us for the job searching process.
@@ -57,7 +58,7 @@ To take this further/improve, perhaps a new Print class could be extracted from 
 
 Update 19/06/2018:
 
-I have updated the program, which now had a separate Printer class which has responsibility for printing a given statement. I felt as if the Transaction class should only be responsible for logging transactions and not formatting them for printing. I have made sure to mock this new dependency in the tests. I have also since mocked Time in the tests.
+I have updated the program, which now has a separate Printer class which has responsibility for printing a given statement. I felt as if the Transaction class should only be responsible for logging transactions and not formatting them for printing. I have made sure to mock this new dependency in the tests. I have also since mocked Time in the tests.
 
 
 ## Instructions

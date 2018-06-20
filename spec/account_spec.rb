@@ -72,13 +72,13 @@ describe Account do
     it 'Returns a full transaction statement' do
       subject.deposit(20)
       subject.withdraw(10)
-      expect(subject.view_statement).to eq(
+      expect { subject.view_statement }.to output(
         <<~HEREDOC
         Date || Credit || Debit || Balance
         18/06/2018 || 0 || 10 || 10
         18/06/2018 || 20 || 0 || 20
         HEREDOC
-      )
+      ).to_stdout
     end
   end
 end

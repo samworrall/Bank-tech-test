@@ -11,13 +11,13 @@ describe Printer do
     end
 
     it 'Pretty prints a statement' do
-      expect(subject.pretty_print(statement)).to eq(
+      expect { subject.pretty_print(statement) }.to output(
         <<~HEREDOC
         Date || Credit || Debit || Balance
         18/06/2018 || 0 || 10 || 10
         18/06/2018 || 20 || 0 || 20
         HEREDOC
-      )
+      ).to_stdout
     end
   end
 end

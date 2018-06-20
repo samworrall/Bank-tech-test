@@ -4,6 +4,6 @@ class Printer
     statement.reverse_each do |transaction|
       printed_statement += "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}\n"
     end
-    p printed_statement
+    puts printed_statement
   end
 end

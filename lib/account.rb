@@ -25,6 +25,6 @@ class Account
   end
 
   def view_statement
-    @printer.pretty_print(@transaction_log.history)
+    puts @printer.pretty_print(@transaction_log.history)
   end
 end

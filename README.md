@@ -87,9 +87,13 @@ $ irb -r ./lib/account.rb
 ## Example
 
 account = Account.new
+
 account.deposit(50)
+
 account.deposit(100)
+
 account.withdraw(50)
+
 account.view_statement
 
 ```

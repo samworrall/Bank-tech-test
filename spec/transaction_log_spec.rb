@@ -1,6 +1,6 @@
-require 'transaction'
+require 'transaction_log'
 
-describe Transaction do
+describe Transaction_log do
   let(:date) { '18/06/2018' }
   describe '#history', :history do
     it 'Returns an empty array upon instantiation' do

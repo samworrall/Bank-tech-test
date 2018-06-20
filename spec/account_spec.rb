@@ -1,8 +1,8 @@
 require 'account'
 
 describe Account do
-  let(:subject) { Account.new(transaction, printer) }
-  let(:transaction) { spy :transaction }
+  let(:subject) { Account.new(transaction_log, printer) }
+  let(:transaction_log) { spy :transaction_log }
   let(:printer) {
      double :printer,
      pretty_print: <<~HEREDOC
@@ -32,7 +32,7 @@ describe Account do
 
     it 'Calls log on transaction' do
       subject.deposit(10)
-      expect(transaction).to have_received(:log).once
+      expect(transaction_log).to have_received(:log).once
     end
 
     it 'Raises an error if the deposit amount is negative' do
@@ -55,7 +55,7 @@ describe Account do
     it 'Calls log on transaction' do
       subject.deposit(20)
       subject.withdraw(10)
-      expect(transaction).to have_received(:log).twice
+      expect(transaction_log).to have_received(:log).twice
     end
 
     it 'Raises an error when new balance would be < minimum balace' do

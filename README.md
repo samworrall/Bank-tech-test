@@ -82,3 +82,19 @@ Play around in IRB to see the functionality
 ```
 $ irb -r ./lib/account.rb
 ```
+
+
+## Example
+
+account = Account.new
+account.deposit(50)
+account.deposit(100)
+account.withdraw(50)
+account.view_statement
+
+```
+Date || Credit || Debit || Balance
+20/06/2018 || 0 || 50 || 100
+20/06/2018 || 100 || 0 || 150
+20/06/2018 || 50 || 0 || 50
+```

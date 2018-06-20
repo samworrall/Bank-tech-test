@@ -1,5 +1,5 @@
 require_relative '../lib/account.rb'
-require_relative '../lib/transaction.rb'
+require_relative '../lib/transaction_log.rb'
 require_relative '../lib/printer.rb'
 
 def make_a_deposit

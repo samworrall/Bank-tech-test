@@ -43,4 +43,9 @@ describe 'Bank Account', :feature do
       "Minimum deposit is #{Account::MINIMUM_DEPOSIT}"
     )
   end
+
+  it 'Updates the balance of the account positively' do
+    account = Account.new
+    expect { account.deposit(50) }.to change { account.balance }.by(50)
+  end
 end

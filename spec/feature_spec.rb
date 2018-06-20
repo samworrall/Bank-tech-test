@@ -20,11 +20,19 @@ describe 'Bank Account', :feature do
     ).to_stdout
   end
 
-  it 'Raises an error' do
+  it 'Raises an error when withdrawing more than is in balance' do
     account = Account.new
     date = Time.now.strftime('%d/%m/%Y')
     expect { account.withdraw(50) }.to raise_error(
       "Insufficient funds!"
+    )
+  end
+
+  it 'Raises an error when withdrawing less than the minimum withdrawal' do
+    account = Account.new
+    date = Time.now.strftime('%d/%m/%Y')
+    expect { account.withdraw(-50) }.to raise_error(
+      "Minimum withdrawal is #{Account::MINIMUM_WITHDRAWAL}"
     )
   end
 end
